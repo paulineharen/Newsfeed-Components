@@ -114,3 +114,82 @@ const data = [
   Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
   Refresh the page to see the new article.
 */
+
+function articleMaker(articleOb) {
+
+  //Create Elements
+
+  const div = document.createElement('div');
+  div.classList.add('article');
+
+  const h2 = document.createElement('h2');
+  h2.textContent = articleOb.title;
+
+  const date = document.createElement('p');
+  date.classList.add('date')
+  date.textContent = articleOb.date;
+
+  const p1 = document.createElement('p');
+  p1.textContent = articleOb.firstParagraph;
+
+  const p2 = document.createElement('p');
+  p1.textContent = articleOb.secondParagraph;
+
+
+  const p3 = document.createElement('p');
+  p1.textContent = articleOb.thirdParagraph;
+
+  const span = document.createElement('span');
+  span.classList.add('expandButton');
+  span.textContent = '+';
+
+  //Appends
+
+  div.appendChild(h2);
+  div.appendChild(date);
+  div.appendChild(p1);
+  div.appendChild(p2);
+  div.appendChild(p3);
+  div.appendChild(span);
+
+  //Event Listener
+
+  span.addEventListener('click', () => {
+    div.classList.toggle('article-open');
+  })
+
+  return div;
+}
+
+const arti = document.querySelector('.articles');
+
+data.forEach(articleOb => {
+  arti.appendChild(articleMaker(articleOb));
+})
+
+const anotherArticle = {
+  title: 'Here Is An Article Title',
+  date: 'Nov 25th, 2015',
+  firstParagraph: `Well, here we go with some new things that actually mean nothing.`,  
+
+  secondParagraph: `Yet we keep continuing without any sense, but that´s all right because it does actually serve a purpose.`,
+
+  thirdParagraph: `And because it has served it's purpose, the words will now stop.`,
+}
+
+const andAnotherArticle = {
+  title: 'Gib',
+  date: 'Apr 18th, 2020',
+  firstParagraph: `One.`,  
+
+  secondParagraph: `Two.`,
+
+  thirdParagraph: `Three.`,
+}
+
+
+const addMore = articleMaker(anotherArticle);
+arti.appendChild(addMore);
+
+const addOneMore = articleMaker(andAnotherArticle);
+arti.appendChild(addOneMore);
