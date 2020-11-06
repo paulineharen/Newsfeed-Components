@@ -177,6 +177,19 @@ const anotherArticle = {
   thirdParagraph: `And because it has served it's purpose, the words will now stop.`,
 }
 
+const andAnotherArticle = {
+  title: 'Gib',
+  date: 'Apr 18th, 2020',
+  firstParagraph: `One.`,  
+
+  secondParagraph: `Two.`,
+
+  thirdParagraph: `Three.`,
+}
+
 
 const addMore = articleMaker(anotherArticle);
 arti.appendChild(addMore);
+
+const addOneMore = articleMaker(andAnotherArticle);
+arti.appendChild(addOneMore);
